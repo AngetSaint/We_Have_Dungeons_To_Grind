@@ -10,6 +10,7 @@ public class TestInput : MonoBehaviour
     CharacterController controller;
     public GameObject model;
     Animator animator;
+    Vector3 movement;
 
     float rotateSpeed = 9.0f; // The rotation speed of the model
     float speed = 4f; // The speed of the player
@@ -38,7 +39,7 @@ public class TestInput : MonoBehaviour
 
     private void Update()
     {
-        Vector3 movement = new Vector3(move.x, 0, move.y) * Time.deltaTime;
+        movement = new Vector3(move.x, 0, move.y) * Time.deltaTime;
         movement = Vector3.ClampMagnitude(movement, 1.0f);
 
         if (movement.magnitude > 0)
@@ -49,6 +50,12 @@ public class TestInput : MonoBehaviour
         movement *= speed;
         
         controller.Move(movement);
+    }
+
+    private void FixedUpdate()
+    {
+        animator.SetFloat("Velocity", controller.velocity.magnitude);
+        Debug.Log(controller.velocity.magnitude);
     }
 
     void RotateModelToFaceMovement(Vector3 moveDirection)
