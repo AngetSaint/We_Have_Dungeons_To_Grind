@@ -6,7 +6,7 @@
             "id": "db9659f0-8102-475a-b96c-112f2a19de7d",
             "actions": [
                 {
-                    "name": "Jump",
+                    "name": "Attack",
                     "type": "Button",
                     "id": "7c38c9ae-0b30-47be-a77a-1ec68919dac3",
                     "expectedControlType": "Button",
@@ -28,11 +28,11 @@
                 {
                     "name": "",
                     "id": "27ee6305-5c22-4378-9029-e7629f2e7ed8",
-                    "path": "<SwitchProControllerHID>/buttonSouth",
+                    "path": "<SwitchProControllerHID>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Switch Pro Controller",
-                    "action": "Jump",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
