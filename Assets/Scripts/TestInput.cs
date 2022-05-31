@@ -16,12 +16,12 @@ public class TestInput : MonoBehaviour
     Vector2 move;
 
     // Values
-    float rotateSpeed = 9.0f; // The rotation speed of the model
-    float speed = 4f; // The speed of the player
+    float rotateSpeed = 7.5f; // The rotation speed of the model
+    float speed; // The speed of the player
     float maxSpeed = 4f; // The maximum speed of the player
     float speedWhenCharging = 2f; // The speed of the player when charging a sword attack
-    float speedWhenImpulse = 8f; // The speed of the player when the sword attack is released
-    float attackRate = 2f; // How many times the player can attack per second
+    float speedWhenImpulse = 6f; // The speed of the player when the sword attack is released
+    float attackRate = 1.25f; // How many times the player can attack per second
     float nextAttackTime = 0f; // Counter for the attackRate
 
     // State
@@ -42,6 +42,8 @@ public class TestInput : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+
+        speed = maxSpeed;
     }
 
     private void Update()
@@ -76,7 +78,7 @@ public class TestInput : MonoBehaviour
             nextAttackTime = Time.time + 1f / attackRate;
             speed = speedWhenCharging;
             attacking = true;
-            StartCoroutine(SwordSpeedCountdown(4));
+            StartCoroutine(SwordSpeedCountdown(5));
         }
     }
 
@@ -93,7 +95,7 @@ public class TestInput : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
             counter--;
-            if(counter == 3)
+            if(counter == 4)
             {
                 speed = speedWhenImpulse;
             }
