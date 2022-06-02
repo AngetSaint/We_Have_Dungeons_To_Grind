@@ -21,7 +21,7 @@ public class TestInput : MonoBehaviour
     float maxSpeed = 4f; // The maximum speed of the player
     float speedWhenCharging = 2f; // The speed of the player when charging a sword attack
     float speedWhenImpulse = 6f; // The speed of the player when the sword attack is released
-    float attackRate = 1.25f; // How many times the player can attack per second
+    float attackRate = 1.3f; // How many times the player can attack per second
     float nextAttackTime = 0f; // Counter for the attackRate
 
     // State
@@ -78,7 +78,7 @@ public class TestInput : MonoBehaviour
             nextAttackTime = Time.time + 1f / attackRate;
             speed = speedWhenCharging;
             attacking = true;
-            StartCoroutine(SwordSpeedCountdown(5));
+            StartCoroutine(SwordSpeedCountdown(6));
         }
     }
 
@@ -95,10 +95,12 @@ public class TestInput : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
             counter--;
+            /*
             if(counter == 4)
             {
                 speed = speedWhenImpulse;
             }
+            */
         }
         speed = maxSpeed;
         attacking = false;
